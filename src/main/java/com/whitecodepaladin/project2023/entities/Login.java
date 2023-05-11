@@ -1,5 +1,6 @@
 package com.whitecodepaladin.project2023.entities;
 
+import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -31,15 +32,19 @@ public class Login {
 	private String genreLogin;
 	
 	@Column(name = "birthdate")
-	private Integer birthdateLogin;
+	private Date birthdateLogin;
+	
+	@Column(name = "user_privilege")
+	private String userPrivilegeLogin;
 	
 	public Login(String usernameLogin, String passwordLogin, String emailLogin, String genreLogin,
-			Integer birthdataLogin) {
+			Date birthdataLogin, String userPrivilegeLogin) {
 		this.usernameLogin = usernameLogin;
 		this.passwordLogin = passwordLogin;
 		this.emailLogin = emailLogin;
 		this.genreLogin = genreLogin;
 		this.birthdateLogin = birthdataLogin;
+		this.userPrivilegeLogin = userPrivilegeLogin;
 	}
 
 	public Long getIdLogin() {
@@ -82,12 +87,20 @@ public class Login {
 		this.genreLogin = genreLogin;
 	}
 
-	public Integer getBirthdateLogin() {
+	public Date getBirthdateLogin() {
 		return birthdateLogin;
 	}
 
-	public void setBirthdateLogin(Integer birthdateLogin) {
+	public void setBirthdateLogin(Date birthdateLogin) {
 		this.birthdateLogin = birthdateLogin;
+	}
+	
+	public String getUserPrivilegeLogin() {
+		return userPrivilegeLogin;
+	}
+
+	public void setGUserPrivilegeLogin(String userPrivilegeLogin) {
+		this.userPrivilegeLogin = userPrivilegeLogin;
 	}
 
 	@Override
