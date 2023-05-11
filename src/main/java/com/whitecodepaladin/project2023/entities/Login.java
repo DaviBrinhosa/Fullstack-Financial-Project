@@ -37,6 +37,9 @@ public class Login {
 	@Column(name = "user_privilege")
 	private String userPrivilegeLogin;
 	
+	public Login() {
+	}
+	
 	public Login(String usernameLogin, String passwordLogin, String emailLogin, String genreLogin,
 			Date birthdataLogin, String userPrivilegeLogin) {
 		this.usernameLogin = usernameLogin;
