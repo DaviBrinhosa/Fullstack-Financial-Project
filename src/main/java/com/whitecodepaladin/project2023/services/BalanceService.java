@@ -1,5 +1,7 @@
 package com.whitecodepaladin.project2023.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,9 +17,14 @@ public class BalanceService {
 	private BalanceRepository balanceRepository;
 	
 	@Transactional(readOnly = true)
+	public List<BalanceDTO> findAll() {
+		List<Balance> result = balanceRepository.findAll();
+		return result.stream().map(x -> new BalanceDTO(x)).toList();
+	}
+	
+	@Transactional(readOnly = true)
 	public BalanceDTO findById(Long id) {
 		Balance result = balanceRepository.findById(id).get();
-		BalanceDTO dto = new BalanceDTO(result);
-		return dto;
+		return new BalanceDTO(result);
 	}
 }

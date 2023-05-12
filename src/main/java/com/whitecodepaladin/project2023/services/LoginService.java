@@ -19,7 +19,6 @@ public class LoginService {
 	@Transactional(readOnly = true)
 	public List<LoginDTO> findAll() {
 		List<Login> result = loginRepository.findAll();
-		List<LoginDTO> dto = result.stream().map(x -> new LoginDTO(x)).toList();
-		return dto;
+		return result.stream().map(x -> new LoginDTO(x)).toList();
 	}
 }
