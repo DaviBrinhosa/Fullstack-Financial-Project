@@ -27,6 +27,9 @@ public class Balance {
 	@Column(name = "description", nullable=false, length = 200)
 	private String description;
 	
+	@Column(name = "bank_account", nullable=false, length = 200)
+	private String bank_account;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "transition_date", nullable=false)
 	private Date transitionDate;
@@ -40,11 +43,12 @@ public class Balance {
 	public Balance() {
 	}
 
-	public Balance(Long balanceID, Long userID, String description, Date transitionDate, Double transitionValue,
-			String observation) {
+	public Balance(Long balanceID, Long userID, String description, String bank_account, Date transitionDate,
+			Double transitionValue, String observation) {
 		this.balanceID = balanceID;
 		this.userID = userID;
 		this.description = description;
+		this.bank_account = bank_account;
 		this.transitionDate = transitionDate;
 		this.transitionValue = transitionValue;
 		this.observation = observation;
@@ -72,6 +76,14 @@ public class Balance {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getBank_account() {
+		return bank_account;
+	}
+
+	public void setBank_account(String bank_account) {
+		this.bank_account = bank_account;
 	}
 
 	public Date getTransitionDate() {

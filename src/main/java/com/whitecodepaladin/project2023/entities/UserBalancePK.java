@@ -11,40 +11,41 @@ public class UserBalancePK {
 
 	@ManyToOne
     @JoinColumn(name = "login_id")
-    private Login userID;
+    private Login loginID;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Balance userlist;
+    @JoinColumn(name = "balance_id")
+    private Balance balanceID;
 
     public UserBalancePK() {
     	
     }
 
-	public UserBalancePK(Login userID, Balance user_id_list) {
-		this.userID = userID;
-		this.userlist = userlist;
+	public UserBalancePK(Login loginID, Balance balanceID) {
+		super();
+		this.loginID = loginID;
+		this.balanceID = balanceID;
 	}
 
-	public Login getUserID() {
-		return userID;
+	public Login getLoginID() {
+		return loginID;
 	}
 
-	public void setUserID(Login userID) {
-		this.userID = userID;
+	public void setLoginID(Login loginID) {
+		this.loginID = loginID;
 	}
 
-	public Balance getUserlist() {
-		return userlist;
+	public Balance getBalanceID() {
+		return balanceID;
 	}
 
-	public void setUserlist(Balance userlist) {
-		this.userlist = userlist;
+	public void setBalanceID(Balance balanceID) {
+		this.balanceID = balanceID;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(userID, userlist);
+		return Objects.hash(balanceID, loginID);
 	}
 
 	@Override
@@ -56,7 +57,7 @@ public class UserBalancePK {
 		if (getClass() != obj.getClass())
 			return false;
 		UserBalancePK other = (UserBalancePK) obj;
-		return Objects.equals(userID, other.userID) && Objects.equals(userlist, other.userlist);
+		return Objects.equals(balanceID, other.balanceID) && Objects.equals(loginID, other.loginID);
 	}
     
 }

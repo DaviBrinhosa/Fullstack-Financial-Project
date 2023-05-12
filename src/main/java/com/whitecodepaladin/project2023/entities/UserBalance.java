@@ -2,6 +2,7 @@ package com.whitecodepaladin.project2023.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -13,16 +14,17 @@ public class UserBalance {
 	@EmbeddedId
 	private UserBalancePK id = new UserBalancePK();
 
-	private Integer position;
+	@Column(name = "user_id", nullable=false)
+	private Long userID;
 
 	public UserBalance() {
 		
 	}
 
-	public UserBalance(Login userID, Balance userlist, Integer position) {
-		id.setUserID(userID);
-		id.setUserlist(userlist);
-		this.position = position;
+	public UserBalance(Login loginID, Balance balanceID, Long userID) {
+		id.setLoginID(loginID);
+		id.setBalanceID(balanceID);
+		this.userID = userID;
 	}
 
 	@Override
