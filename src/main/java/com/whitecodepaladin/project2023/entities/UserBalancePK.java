@@ -22,7 +22,6 @@ public class UserBalancePK {
     }
 
 	public UserBalancePK(Login loginID, Balance balanceID) {
-		super();
 		this.loginID = loginID;
 		this.balanceID = balanceID;
 	}

@@ -1,7 +1,5 @@
 package com.whitecodepaladin.project2023.dto;
 
-import java.util.Date;
-
 import com.whitecodepaladin.project2023.entities.Login;
 
 public class LoginDTO {

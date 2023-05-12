@@ -26,6 +26,23 @@ public class UserBalance {
 		id.setBalanceID(balanceID);
 		this.userID = userID;
 	}
+	
+
+	public UserBalancePK getId() {
+		return id;
+	}
+
+	public void setId(UserBalancePK id) {
+		this.id = id;
+	}
+
+	public Long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
 
 	@Override
 	public int hashCode() {
