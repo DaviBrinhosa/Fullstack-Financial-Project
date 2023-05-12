@@ -9,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "main_login")
@@ -16,39 +18,57 @@ public class Login {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_login")
+	@Column(name = "login_id", nullable=false)
 	private Long idLogin;
 	
-	@Column(name = "username")
+	@Column(name = "username", nullable=false)
 	private String usernameLogin;
 	
-	@Column(name = "password")
+	@Column(name = "fullname", nullable=false)
+	private String fullnameLogin;
+	
+	@Column(name = "password", nullable=false)
 	private String passwordLogin;
 	
-	@Column(name = "email")
+	@Column(name = "email", nullable=false)
 	private String emailLogin;
 	
 	@Column(name = "genre")
 	private String genreLogin;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "birthdate")
 	private Date birthdateLogin;
 	
-	@Column(name = "user_privilege")
+	@Column(name = "user_privilege", nullable=false)
 	private String userPrivilegeLogin;
+	
+	@Column(name = "status", nullable=false)
+	private String statusLogin;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "inactive_date")
+	private Date inactivedateLogin;
 	
 	public Login() {
 	}
-	
-	public Login(String usernameLogin, String passwordLogin, String emailLogin, String genreLogin,
-			Date birthdataLogin, String userPrivilegeLogin) {
+
+	public Login(Long idLogin, String usernameLogin, String fullnameLogin, String passwordLogin, String emailLogin,
+			String genreLogin, Date birthdateLogin, String userPrivilegeLogin, String statusLogin,
+			Date inactivedateLogin) {
+		this.idLogin = idLogin;
 		this.usernameLogin = usernameLogin;
+		this.fullnameLogin = fullnameLogin;
 		this.passwordLogin = passwordLogin;
 		this.emailLogin = emailLogin;
 		this.genreLogin = genreLogin;
-		this.birthdateLogin = birthdataLogin;
+		this.birthdateLogin = birthdateLogin;
 		this.userPrivilegeLogin = userPrivilegeLogin;
+		this.statusLogin = statusLogin;
+		this.inactivedateLogin = inactivedateLogin;
 	}
+
+
 
 	public Long getIdLogin() {
 		return idLogin;
@@ -64,6 +84,14 @@ public class Login {
 
 	public void setUsernameLogin(String usernameLogin) {
 		this.usernameLogin = usernameLogin;
+	}
+
+	public String getFullnameLogin() {
+		return fullnameLogin;
+	}
+
+	public void setFullnameLogin(String fullnameLogin) {
+		this.fullnameLogin = fullnameLogin;
 	}
 
 	public String getPasswordLogin() {
@@ -98,11 +126,27 @@ public class Login {
 		this.birthdateLogin = birthdateLogin;
 	}
 	
+	public String getStatusLogin() {
+		return statusLogin;
+	}
+
+	public void setStatusLogin(String statusLogin) {
+		this.statusLogin = statusLogin;
+	}
+
+	public Date getInactivedateLogin() {
+		return inactivedateLogin;
+	}
+
+	public void setInactivedateLogin(Date inactivedateLogin) {
+		this.inactivedateLogin = inactivedateLogin;
+	}
+
 	public String getUserPrivilegeLogin() {
 		return userPrivilegeLogin;
 	}
 
-	public void setGUserPrivilegeLogin(String userPrivilegeLogin) {
+	public void setUserPrivilegeLogin(String userPrivilegeLogin) {
 		this.userPrivilegeLogin = userPrivilegeLogin;
 	}
 
