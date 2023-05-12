@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.whitecodepaladin.project2023.dto.LoginDTO;
-import com.whitecodepaladin.project2023.entities.Login;
 import com.whitecodepaladin.project2023.services.LoginService;
 
 @RestController

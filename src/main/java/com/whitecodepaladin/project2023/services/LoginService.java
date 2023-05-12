@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.whitecodepaladin.project2023.dto.LoginDTO;
 import com.whitecodepaladin.project2023.entities.Login;
@@ -15,6 +16,7 @@ public class LoginService {
 	@Autowired
 	private LoginRepository loginRepository;
 	
+	@Transactional(readOnly = true)
 	public List<LoginDTO> findAll() {
 		List<Login> result = loginRepository.findAll();
 		List<LoginDTO> dto = result.stream().map(x -> new LoginDTO(x)).toList();
