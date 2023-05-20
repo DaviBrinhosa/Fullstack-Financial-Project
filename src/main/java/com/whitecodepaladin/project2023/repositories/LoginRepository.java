@@ -11,7 +11,7 @@ import com.whitecodepaladin.project2023.projections.UserBalanceProjection;
 public interface LoginRepository extends JpaRepository<Login, Long> {
 	
 	@Query(nativeQuery = true, value = """
-			SELECT ML.LOGIN_ID AS `ID`, ML.USERNAME AS `User`, MB.BANK_ACCOUNT AS `Bank`, MB.DESCRIPTION AS `Description`, MB.TRANSITION_DATE AS `Date`, MB.TRANSITION_VALUE AS `Value`, MB.OBSERVATION AS `Observation`
+			SELECT ML.LOGIN_ID AS iD, ML.USERNAME AS user, MB.BANK_ACCOUNT AS bank, MB.DESCRIPTION AS description, MB.TRANSITION_DATE AS date, MB.TRANSITION_VALUE AS value, MB.OBSERVATION AS observation
 			FROM USER_BALANCE UB
 			INNER JOIN MAIN_BALANCE MB
 			ON UB.USER_ID = MB.USER_ID AND UB.BALANCE_ID = MB.BALANCE_ID
