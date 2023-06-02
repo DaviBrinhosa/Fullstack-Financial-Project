@@ -1,4 +1,3 @@
-Fullstack Financial Project (Java + React)
 # About the project
 
 [Application under development!!!]
